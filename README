@@ -1,0 +1,42 @@
+budowanie projektu za pomocą Gradle
+
+1) dostań gradle: https://services.gradle.org/distributions/gradle-1.12-bin.zip
+2) rozpakuj, dodaj zmienną środowiskową GRADLE_HOME, dodaj też GRADLE_home/bin do PATHa
+3) "gradle eclipse" przystosowuje projekt do uruchomienia w eclipse (można wtedy normalnie zaimportować)
+4) polecam gradle plugin do eclipse'a
+
+"gradle jar" zbuduje wykonywalnego JARa (klasę z mainem definiuje linijka: mainClassName = 'wedt.Main')
+
+dodawanie zależności:
+
+build.gradle jest plikiem, który definiuje projekt
+sekcja dependencies definiuje biblioteki, które projekt używa.
+definicja biblioteki trzyma się mavenowego schematu: 'groupId:artifactId:version:classifier'
+"compile" oznacza, że potrzebna jest na etapie kompilacji
+"test" oznacza, że potrzebna jest tylko do testów
+są jeszcze inne oznaczenia, ale nie ma potrzeby drążyć tematu
+
+groupId to zazwyczaj domena_organizacji.nazwa_projektu
+artifactId to zazwyczaj nazwa_projektu
+version to wiadomo co
+classifier to sam nie wiem co :D
+
+żeby dodać bibliotekę, trzeba:
+1) znaleźć ją w repozytorium artefaktów mavenowych (search.maven.org)
+    (często też można znaleźć te informacje na stronie domowej biblioteki)
+2) dodać ją do dependencies wg schematu j.w.
+
+gradle samo zarządza wymaganymi zależnościami biblioteki, dlatego nie trzeba wpisywać np lucene-core
+jak się ma wpisane lucene-analyzers-common
+
+
+----------
+
+format pliku z danymi o przepisach:
+
+nazwa przepisu|tag,tag,tag,tag|składnik,składnik,składnik
+spacje przylegające nie są uwzględniane
+
+np:
+
+Jajecznica po studencku|polish, vegetarian | eggs, fridge

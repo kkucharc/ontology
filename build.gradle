@@ -1,0 +1,39 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'application'
+
+sourceCompatibility = 1.7
+
+repositories {
+    mavenCentral()
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src'
+        }
+    }
+    test {
+        java {
+            srcDir 'test'
+        }
+    }
+}
+
+mainClassName = 'wedt.Main'
+
+dependencies {
+    compile 'org.apache.lucene:lucene-analyzers-common:4.8.0'
+    compile 'org.jsoup:jsoup:1.7.3'
+    compile('edu.stanford.nlp:stanford-corenlp:3.3.1') 
+    compile 'edu.stanford.nlp:stanford-corenlp:3.3.1:models'
+    compile 'com.h2database:h2:1.4.178'
+	compile ('org.apache.jena:jena-core:2.11.1'){
+    	exclude (group: 'xerces', module:'xercesImpl')
+    }
+	compile 'commons-lang:commons-lang:2.6'
+
+    testCompile 'junit:junit:4.11'
+}

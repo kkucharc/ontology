@@ -1,0 +1,4 @@
+Used libraries:
+Lucene Core        - stemmization, POS filtering, stopwords filtering  (http://lucene.apache.org/core/)
+Jsoup              - xHTML parsing                                     (http://jsoup.org/)
+Stanford CoreNLP   - lemmatization                                     (http://nlp.stanford.edu/software/corenlp.shtml)
